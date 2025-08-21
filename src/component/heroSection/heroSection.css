@@ -1,0 +1,55 @@
+*{
+  z-index: 1;
+}
+
+.table {
+  background-color: #ffffff;
+}
+
+.table td, 
+.table th {
+  vertical-align: middle;
+  font-size: 1.2rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+}
+.back td{
+    background-image: url(../images/moon.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    color: white;       
+  font-weight: bold;
+}
+
+
+.duhr td{
+     background-image: url(../images/duhr.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    color: #000;       
+  font-weight: bold;
+}
+.maghrib td{
+     background-image: url(../images/sunset.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    color: #000;       
+  font-weight: bold;
+}
+.night td{
+     background-image: url(../images/night.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    color: #ffffff;     
+  font-weight: bold;
+}
