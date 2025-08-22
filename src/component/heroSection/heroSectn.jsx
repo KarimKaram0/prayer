@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../heroSection/heroSection.css"
+import Counter from "../counter/counter";
 
 // دالة تحويل 24→12
 function formatTime24to12(time24) {
@@ -92,5 +93,6 @@ export default function HeroSection() {
         </div>
       )}
     </div>
+
   );
 }
