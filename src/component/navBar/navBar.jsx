@@ -32,6 +32,11 @@ export default function NavBar() {
                 السبحه
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Mushaf">
+               ☪️ المصحف الشريف
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

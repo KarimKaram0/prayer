@@ -1,5 +1,6 @@
 import HeroSection from "../heroSection/heroSectn";
 import kaabaImg from "../images/kaaba.jpg";
+import Quraan from "../quraan/quraan";
 
 export default function HomePageSections() {
   return (
@@ -11,6 +12,7 @@ export default function HomePageSections() {
         display: "flex",
         flexDirection: "column",}}>
     <HeroSection/>
+    
     </div>
   )
 }

@@ -5,6 +5,7 @@ import HomePageSections from "../src/component/homePageSections/homePageSections
 import NavBar from "./component/navBar/navBar";
 import { Route, Routes } from "react-router-dom";
 import Counter from "./component/counter/counter";
+import Mushaf from "./component/quraan/quraan";
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePageSections />} />
         <Route path="/counter" element={<Counter />} />
+        <Route path="/Mushaf" element={<Mushaf />} />
+
       </Routes>
     </div>
   );
