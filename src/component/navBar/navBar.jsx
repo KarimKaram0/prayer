@@ -37,6 +37,11 @@ export default function NavBar() {
                ☪️ المصحف الشريف
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/AzkarLinks">
+               الاذكار
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

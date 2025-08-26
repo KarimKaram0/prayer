@@ -41,7 +41,7 @@ export default function Counter() {
           }}
           className="btn btn-danger btn-counter"
         >
-          Reset
+          تصفير
         </button>
       </div>
     </div>

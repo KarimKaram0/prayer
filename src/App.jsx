@@ -6,6 +6,10 @@ import NavBar from "./component/navBar/navBar";
 import { Route, Routes } from "react-router-dom";
 import Counter from "./component/counter/counter";
 import Mushaf from "./component/quraan/quraan";
+import AzkarElSalah from "./component/azkarElSalah/azkarElSalah";
+import AzkarElmasa from "./component/azkarElmasa/azkarElmasa";
+import Hadiths from "./component/Hadiths/Hadiths";
+import AzkarLinks from "./component/hadithsLinks/hadithsLinks";
 
 function App() {
   return (
@@ -25,6 +29,12 @@ function App() {
         <Route path="/" element={<HomePageSections />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/Mushaf" element={<Mushaf />} />
+        <Route path="/AzkarElSalah" element={<AzkarElSalah />} />
+        <Route path="/AzkarElmasa" element={<AzkarElmasa />} />
+        <Route path="/Hadiths" element={<Hadiths />} />
+        <Route path="/AzkarLinks" element={<AzkarLinks />} />
+
+
 
       </Routes>
     </div>

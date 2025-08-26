@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../heroSection/heroSection.css"
 import Counter from "../counter/counter";
+import { lazy } from "react";
 
 // دالة تحويل 24→12
 function formatTime24to12(time24) {
@@ -29,7 +30,7 @@ export default function HeroSection() {
   }, [city]);
 
   return (
-    <div className="container mt-5 d-flex flex-column align-items-end">
+    <div onLoad={lazy} className="container mt-5 d-flex flex-column align-items-end">
 
       {/* اختيار المدينة */}
       <div className="card w-50 mb-4 shadow-sm">
