@@ -4,14 +4,14 @@ import Counter from "../counter/counter";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-export default function AzkarElSalah() {
+export default function AzkarElNoom() {
   const [azkar, setAzkar] = useState([]);
   const [title, setTitle] = useState("");
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await fetch("https://ahegazy.github.io/muslimKit/json/azkar_sabah.json");
+        const res = await fetch("https://ahegazy.github.io/muslimKit/json/Sleep_azkar.json");
         const data = await res.json();
         setAzkar(data.content);
         setTitle(data.title);

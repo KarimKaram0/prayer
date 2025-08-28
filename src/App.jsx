@@ -10,6 +10,7 @@ import AzkarElSalah from "./component/azkarElSalah/azkarElSalah";
 import AzkarElmasa from "./component/azkarElmasa/azkarElmasa";
 import Hadiths from "./component/Hadiths/Hadiths";
 import AzkarLinks from "./component/hadithsLinks/hadithsLinks";
+import AzkarElNoom from "./component/azkarElNoom/azkarElNoom";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/AzkarElSalah" element={<AzkarElSalah />} />
         <Route path="/AzkarElmasa" element={<AzkarElmasa />} />
         <Route path="/Hadiths" element={<Hadiths />} />
+        <Route path="/AzkarElNoom" element={<AzkarElNoom />} />
         <Route path="/AzkarLinks" element={<AzkarLinks />} />
 
 

@@ -1,8 +1,82 @@
-.cards{
-    width: 600px;
-    margin: auto;
+.azkar-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 10px auto;
+  padding: 0 15px;
 }
-.slid{
-       box-shadow: 5px 6px 10px 0px black;
 
+.azkar-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-top: 100px;
+
+}
+
+.mySwiper {
+  width: 100%;
+}
+
+.slid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 100%;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #34495e;
+  line-height: 1.6;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+.repeat {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #16a085;
+}
+
+/* موبايل */
+@media (max-width: 480px) {
+  .azkar-title {
+    font-size: 1.5rem;
+  }
+  .card {
+    padding: 16px;
+    min-height: 200px;
+  }
+  .card-title {
+    font-size: 1rem;
+  }
 }

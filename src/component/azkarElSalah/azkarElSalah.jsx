@@ -1,15 +1,9 @@
 import "../azkarElSalah/azkarElSalah.css"
-
-
-import "../azkarElmasa/azkarElmasa.css"
-
-import { useState, useEffect, lazy } from "react";
+import { useState, useEffect } from "react";
 import Counter from "../counter/counter";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/effect-cards";
-import { EffectCards } from "swiper/modules";
-import "../Hadiths/hadiths.css"
+
 export default function AzkarElSalah() {
   const [azkar, setAzkar] = useState([]);
   const [title, setTitle] = useState("");
@@ -29,22 +23,21 @@ export default function AzkarElSalah() {
   }, []);
 
   return (
-    <div  className="cards" >
-      <h2 className="text-center mb-3">{title}</h2>
+    <div className="azkar-container">
+      <h2 className="azkar-title">{title}</h2>
       <Swiper
-        effect={"cards"}
         grabCursor={true}
-        modules={[EffectCards]}
+        slidesPerView={1}
+        spaceBetween={20}
         className="mySwiper"
-        
       >
         {azkar.map((zekr, index) => (
-          <SwiperSlide  className="slid" key={index}>
-            <div className="card text-center p-3">
+          <SwiperSlide className="slid" key={index}>
+            <div className="card">
               <div className="card-body">
                 <h5 className="card-title">{zekr.zekr}</h5>
                 {zekr.bless && <p className="card-text">{zekr.bless}</p>}
-                <h3>التكرار: {zekr.repeat}</h3>
+                <p className="repeat">التكرار: {zekr.repeat}</p>
                 <Counter />
               </div>
             </div>
