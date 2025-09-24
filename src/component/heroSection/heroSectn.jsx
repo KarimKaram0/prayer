@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../heroSection/heroSection.css"
+import "../heroSection/heroSection.css";
 import Counter from "../counter/counter";
 import { lazy } from "react";
 
@@ -16,6 +16,7 @@ function formatTime24to12(time24) {
 export default function HeroSection() {
   const [time, setTime] = useState(null);
   const [city, setCity] = useState("Cairo");
+  const [date, setDate] = useState("");
 
   useEffect(() => {
     const getTime = async () => {
@@ -29,25 +30,35 @@ export default function HeroSection() {
     getTime();
   }, [city]);
 
-  return (
-    <div onLoad={lazy} className="container mt-5 d-flex flex-column align-items-end">
+  useEffect(() => {
+    const getDate = async () => {
+      const res = await fetch(
+        `https://api.aladhan.com/v1/timingsByCity?city=${city}&country=Egypt&method=5`
+      );
+      const data = await res.json();
+      setDate(data.data.date);
+    };
+    getDate();
+  }, [city]);
 
-      {/* اختيار المدينة */}
+  return (
+    <div onLoad={lazy} className="container mt-5 d-flex flex-column align-items-center">
+
       <div className="card w-50 mb-4 shadow-sm">
-        <div className="card-header text-center fw-bold">
-          اختر <span className="text-primary">المدينة</span>
-        </div>
         <div className="card-body">
-          <select
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            className="form-select"
-          >
-            <option value="Cairo">القاهرة</option>
-            <option value="Alexandria">الإسكندرية</option>
-            <option value="Giza">الجيزة</option>
-            <option value="Aswan">أسوان</option>
-          </select>
+          <div className="input-group">
+            <label className="input-group-text fw-bold">المدينة</label>
+            <select
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className="form-select border-primary shadow-sm"
+            >
+              <option value="Cairo">القاهرة</option>
+              <option value="Alexandria">الإسكندرية</option>
+              <option value="Giza">الجيزة</option>
+              <option value="Aswan">أسوان</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -55,45 +66,74 @@ export default function HeroSection() {
       {!time ? (
         <div className="alert alert-info w-50 text-center shadow">جاري التحميل...</div>
       ) : (
-        <div className="card w-50 shadow">
-          <div className="card-header text-center fw-bold">
-            مواقيت الصلاة
+        <div className="card w-75 shadow-lg border-0">
+          <div className="card-header bg-success text-white text-center fw-bold fs-4">
+            🕌 مواقيت الصلاة
           </div>
-          <div className="card-body p-0">
-            <table className="table table-hover text-center mb-0">
-              <thead className="table-light">
-                <tr>
-                  <th>الصلاة</th>
-                  <th>الوقت</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="back">
-                  <td>الفجر</td>
-                  <td>{formatTime24to12(time.Fajr)}</td>
-                </tr>
-                <tr className="table-active duhr">
-                  <td>الظهر</td>
-                  <td>{formatTime24to12(time.Dhuhr)}</td>
-                </tr>
-                <tr className="duhr">
-                  <td>العصر</td>
-                  <td>{formatTime24to12(time.Asr)}</td>
-                </tr>
-                <tr className="maghrib">
-                  <td>المغرب</td>
-                  <td>{formatTime24to12(time.Maghrib)}</td>
-                </tr>
-                <tr className="night">
-                  <td>العشاء</td>
-                  <td>{formatTime24to12(time.Isha)}</td>
-                </tr>
-              </tbody>
-            </table>
+
+          <div className="card-body text-center">
+            {/* التاريخ */}
+            <h5 className="mb-4">
+              {date ? (
+                <>
+                  <span className="badge bg-primary me-2">
+                    {date.readable}
+                  </span>
+                  <span className="badge bg-warning text-dark">
+                    {date.hijri?.date} هـ
+                  </span>
+                </>
+              ) : (
+                <span className="text-muted">جاري تحميل التاريخ...</span>
+              )}
+            </h5>
+
+            {/* أوقات الصلاة */}
+            <div className="row g-2 justify-content-center">
+              <div className="col-6 col-md-2">
+                <div className="p-2 bg-light rounded shadow-sm text-center">
+                  <small className="fw-bold">الفجر</small> <br />
+                  <span className="badge bg-info">
+                    {formatTime24to12(time.Fajr)}
+                  </span>
+                </div>
+              </div>
+              <div className="col-6 col-md-2">
+                <div className="p-2 bg-light rounded shadow-sm text-center">
+                  <small className="fw-bold">الظهر</small> <br />
+                  <span className="badge bg-info">
+                    {formatTime24to12(time.Dhuhr)}
+                  </span>
+                </div>
+              </div>
+              <div className="col-6 col-md-2">
+                <div className="p-2 bg-light rounded shadow-sm text-center">
+                  <small className="fw-bold">العصر</small> <br />
+                  <span className="badge bg-info">
+                    {formatTime24to12(time.Asr)}
+                  </span>
+                </div>
+              </div>
+              <div className="col-6 col-md-2">
+                <div className="p-2 bg-light rounded shadow-sm text-center">
+                  <small className="fw-bold">المغرب</small> <br />
+                  <span className="badge bg-info">
+                    {formatTime24to12(time.Maghrib)}
+                  </span>
+                </div>
+              </div>
+              <div className="col-6 col-md-2">
+                <div className="p-2 bg-light rounded shadow-sm text-center">
+                  <small className="fw-bold">العشاء</small> <br />
+                  <span className="badge bg-info">
+                    {formatTime24to12(time.Isha)}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
     </div>
-
   );
 }
